@@ -23,13 +23,12 @@ public class Book {
     @NotBlank(message = "Description is required")
     private String description;
 
-    @Column(name = "image")
-    @Lob
-    private byte[] image;
+    @Column(name = "image", length = 1024)
+    private String image;
 
     // getters and setters
 
-    public Book(Long id, String title, String author, String description, byte[] image) {
+    public Book(Long id, String title, String author, String description, String image) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -72,11 +71,11 @@ public class Book {
         this.description = description;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
